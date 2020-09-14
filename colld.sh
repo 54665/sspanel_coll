@@ -66,10 +66,13 @@ case "$num" in
 	3)
 	beikong2_chushihua
 	;;
+	4)
 	beikong3_chushihua
 	;;
+	5)
 	beikong4_chushihua
 	;;
+	99)
 	beikong99_chushihua
 	;;
 	
