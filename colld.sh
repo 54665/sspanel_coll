@@ -1,0 +1,79 @@
+#!/bin/bash
+#
+# 一个合集脚本2
+#
+# Copyright (c) 2020.
+
+if readlink /proc/$$/exe | grep -q "Bash"; then
+	echo "该脚本需要使用bash而不是sh运行"
+	exit
+fi
+
+if [[ "$EUID" -ne 0 ]]; then
+	echo "对不起你需要使用ROOT权限运行该脚本"
+	exit
+fi
+
+beikong0_chushihua(){
+echo "正在下载BBR脚本"
+wget -N "https://github.000060000.xyz/tcp.sh"
+chmod +x tcp.sh
+./tcp.sh
+}
+beikong1_chushihua(){
+echo "正在下载AWS脚本"
+wget https://raw.githubusercontent.com/54665/awspro/master/aws.sh
+chmod +x 777 aws.sh
+bash aws.sh
+}
+beikong2_chushihua(){
+echo "正在创建ROOT用户"
+echo root:love.love |sudo chpasswd root
+sudo sed -i 's/^.*PermitRootLogin.*/PermitRootLogin yes/g' /etc/ssh/sshd_config;
+sudo sed -i 's/^.*PasswordAuthentication.*/PasswordAuthentication yes/g' /etc/ssh/sshd_config;
+sudo reboot
+}
+beikong3_chushihua(){
+docker version > /dev/null || curl -fsSL get.docker.com | bash
+service docker restart
+}
+beikong4_chushihua(){
+echo "正在添加自启任务"
+echo "service docker restart" >> /etc/rc.d/rc.local
+}
+beikong99_chushihua(){
+echo "脚本升级中"
+rm -rf /usr/bin/coll
+curl -o /usr/bin/aws -Ls https://raw.githubusercontent.com/54665/sspanel_coll/master/coold.sh 
+chmod +x /usr/bin/coll
+}
+echo && echo -e " 合集脚本 V1.0.1 。
+
+ ${Green_font_prefix}1.${Font_color_suffix} BBR脚本
+ ${Green_font_prefix}2.${Font_color_suffix} AWS脚本
+ ${Green_font_prefix}3.${Font_color_suffix} 创建ROOT用户
+ ${Green_font_prefix}4.${Font_color_suffix} 安装DocKer
+ ${Green_font_prefix}5.${Font_color_suffix} DocKer自启
+ ${Green_font_prefix}99.${Font_color_suffix} 脚本升级" && echo
+stty erase '^H' && read -p " 请输入数字 [1-99]:" num
+case "$num" in
+	1)
+	beikong0_chushihua
+	;;
+	2)
+	beikong1_chushihua
+	;;
+	3)
+	beikong2_chushihua
+	;;
+	beikong3_chushihua
+	;;
+	beikong4_chushihua
+	;;
+	beikong99_chushihua
+	;;
+	
+	*)
+	echo "请输入正确数字 [1-99]"
+	;;
+esac
