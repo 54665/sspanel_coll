@@ -44,7 +44,7 @@ echo "service docker restart" >> /etc/rc.d/rc.local
 beikong99_chushihua(){
 echo "脚本升级中"
 rm -rf /usr/bin/coll
-curl -o /usr/bin/aws -Ls https://raw.githubusercontent.com/54665/sspanel_coll/master/coold.sh 
+curl -o /usr/bin/coll -Ls https://raw.githubusercontent.com/54665/sspanel_coll/master/colld.sh
 chmod +x /usr/bin/coll
 }
 echo && echo -e " 合集脚本 V1.0.1 。
