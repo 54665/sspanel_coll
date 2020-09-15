@@ -45,6 +45,10 @@ beikong5_chushihua(){
 echo "正在安装V2-ui"
 bash <(curl -Ls https://blog.sprov.xyz/v2-ui.sh)
 }
+beikong98_chushihua(){
+echo "标准测速脚本"
+curl -fsL https://ilemonra.in/LemonBenchIntl | bash -s spfast
+}
 beikong99_chushihua(){
 echo "脚本升级中"
 rm -rf /usr/bin/coll
@@ -59,6 +63,7 @@ echo && echo -e " 合集脚本 V1.0.1 。
  ${Green_font_prefix}4.${Font_color_suffix} 安装DocKer
  ${Green_font_prefix}5.${Font_color_suffix} DocKer自启
  ${Green_font_prefix}6.${Font_color_suffix} V2-UI
+ ${Green_font_prefix}98.${Font_color_suffix} 标准测速脚本
  ${Green_font_prefix}99.${Font_color_suffix} 脚本升级" && echo
 stty erase '^H' && read -p " 请输入数字 [1-99]:" num
 case "$num" in
@@ -79,6 +84,9 @@ case "$num" in
 	;;
 	6)
 	beikong5_chushihua
+	;;
+	98)
+	beikong98_chushihua
 	;;
 	99)
 	beikong99_chushihua
