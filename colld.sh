@@ -21,27 +21,33 @@ chmod +x tcp.sh
 ./tcp.sh
 }
 beikong1_chushihua(){
+echo "正在下载BBR脚本"
+wget "https://dt.yixiagege.cn/shell/tcp-cn.sh"
+chmod +x tcp-cn.sh
+./tcp-cn.sh
+}
+beikong2_chushihua(){
 echo "正在下载AWS脚本"
 wget https://raw.githubusercontent.com/54665/awspro/master/aws.sh
 chmod +x 777 aws.sh
 bash aws.sh
 }
-beikong2_chushihua(){
+beikong3_chushihua(){
 echo "正在创建ROOT用户"
 echo root:love.love |sudo chpasswd root
 sudo sed -i 's/^.*PermitRootLogin.*/PermitRootLogin yes/g' /etc/ssh/sshd_config;
 sudo sed -i 's/^.*PasswordAuthentication.*/PasswordAuthentication yes/g' /etc/ssh/sshd_config;
 sudo reboot
 }
-beikong3_chushihua(){
+beikong4_chushihua(){
 docker version > /dev/null || curl -fsSL get.docker.com | bash
 service docker restart
 }
-beikong4_chushihua(){
+beikong5_chushihua(){
 echo "正在添加自启任务"
 echo "service docker restart" >> /etc/rc.d/rc.local
 }
-beikong5_chushihua(){
+beikong6_chushihua(){
 echo "正在安装V2-ui"
 bash <(curl -Ls https://blog.sprov.xyz/v2-ui.sh)
 }
@@ -57,12 +63,13 @@ chmod +x /usr/bin/coll
 }
 echo && echo -e " 合集脚本 V1.0.1 。
 
- ${Green_font_prefix}1.${Font_color_suffix} BBR脚本
- ${Green_font_prefix}2.${Font_color_suffix} AWS脚本
- ${Green_font_prefix}3.${Font_color_suffix} 创建ROOT用户
- ${Green_font_prefix}4.${Font_color_suffix} 安装DocKer
- ${Green_font_prefix}5.${Font_color_suffix} DocKer自启
- ${Green_font_prefix}6.${Font_color_suffix} V2-UI
+ ${Green_font_prefix}1.${Font_color_suffix} BBR脚本国外
+ ${Green_font_prefix}2.${Font_color_suffix} BBR脚本国内
+ ${Green_font_prefix}3.${Font_color_suffix} AWS脚本
+ ${Green_font_prefix}4.${Font_color_suffix} 创建ROOT用户
+ ${Green_font_prefix}5.${Font_color_suffix} 安装DocKer
+ ${Green_font_prefix}6.${Font_color_suffix} DocKer自启
+ ${Green_font_prefix}7.${Font_color_suffix} V2-UI
  ${Green_font_prefix}98.${Font_color_suffix} 标准测速脚本
  ${Green_font_prefix}99.${Font_color_suffix} 脚本升级" && echo
 stty erase '^H' && read -p " 请输入数字 [1-99]:" num
@@ -84,6 +91,9 @@ case "$num" in
 	;;
 	6)
 	beikong5_chushihua
+	;;
+	7)
+	beikong6_chushihua
 	;;
 	98)
 	beikong98_chushihua
