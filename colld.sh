@@ -65,7 +65,7 @@ echo && echo -e " 合集脚本 V1.0.1 。
 
  ${Green_font_prefix}1.${Font_color_suffix} BBR脚本国外
  ${Green_font_prefix}2.${Font_color_suffix} BBR脚本国内
- ${Green_font_prefix}3.${Font_color_suffix} AWS脚本
+ ${Green_font_prefix}3.${Font_color_suffix} AWS流量统计脚本
  ${Green_font_prefix}4.${Font_color_suffix} 创建ROOT用户
  ${Green_font_prefix}5.${Font_color_suffix} 安装DocKer
  ${Green_font_prefix}6.${Font_color_suffix} DocKer自启
