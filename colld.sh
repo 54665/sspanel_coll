@@ -37,7 +37,8 @@ echo "正在创建ROOT用户"
 echo root:love.love |sudo chpasswd root
 sudo sed -i 's/^.*PermitRootLogin.*/PermitRootLogin yes/g' /etc/ssh/sshd_config;
 sudo sed -i 's/^.*PasswordAuthentication.*/PasswordAuthentication yes/g' /etc/ssh/sshd_config;
-sudo reboot
+echo "默认Root密码:love.love"
+sudo service sshd restart
 }
 beikong4_chushihua(){
 docker version > /dev/null || curl -fsSL get.docker.com | bash
@@ -50,6 +51,20 @@ echo "service docker restart" >> /etc/rc.d/rc.local
 beikong6_chushihua(){
 echo "正在安装V2-ui"
 bash <(curl -Ls https://blog.sprov.xyz/v2-ui.sh)
+}
+beikong97_chushihua(){
+echo "正在安装Docker"
+docker version > /dev/null || curl -fsSL get.docker.com | bash
+service docker restart
+echo "正在添加自启任务"
+echo "service docker restart" >> /etc/rc.d/rc.local
+echo "正在安装BBR"
+wget -N "https://github.000060000.xyz/tcp.sh"
+chmod +x tcp.sh
+./tcp.sh
+1
+./tcp.sh
+12
 }
 beikong98_chushihua(){
 echo "标准测速脚本"
@@ -70,6 +85,7 @@ echo && echo -e " 合集脚本 V1.0.1 。
  ${Green_font_prefix}5.${Font_color_suffix} 安装DocKer
  ${Green_font_prefix}6.${Font_color_suffix} DocKer自启
  ${Green_font_prefix}7.${Font_color_suffix} V2-UI
+ ${Green_font_prefix}97.${Font_color_suffix} 节点一键
  ${Green_font_prefix}98.${Font_color_suffix} 标准测速脚本
  ${Green_font_prefix}99.${Font_color_suffix} 脚本升级" && echo
 stty erase '^H' && read -p " 请输入数字 [1-99]:" num
@@ -94,6 +110,9 @@ case "$num" in
 	;;
 	7)
 	beikong6_chushihua
+	;;
+	97)
+	beikong98_chushihua
 	;;
 	98)
 	beikong98_chushihua
