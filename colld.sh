@@ -112,7 +112,7 @@ case "$num" in
 	beikong6_chushihua
 	;;
 	97)
-	beikong98_chushihua
+	beikong97_chushihua
 	;;
 	98)
 	beikong98_chushihua
