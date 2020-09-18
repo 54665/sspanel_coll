@@ -25,4 +25,4 @@ fi
 	echo "正在下载管理脚本"
     curl -o /usr/bin/coll -Ls https://raw.githubusercontent.com/54665/sspanel_coll/master/colld.sh
 	chmod +x /usr/bin/coll
-    echo "安装完成，请输入 coll 管理流量统计"
+    echo "安装完成，请输入 coll 打开脚本菜单"
